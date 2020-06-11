@@ -650,10 +650,10 @@ sources.list.udeb:
 		echo "deb $(MIRROR) $(USE_UDEBS_FROM) $(UDEB_COMPONENTS)"; \
 		if [ "$(USE_UNRELEASED)" = 1 ]; then \
 			echo "deb $(MIRROR) unreleased $(UDEB_COMPONENTS)"; \
-		fi \
+		fi; \
 		if [ "$(USE_EXPERIMENTAL)" = 1 ]; then \
 			echo "deb $(MIRROR) experimental $(UDEB_COMPONENTS)"; \
-		fi \
+		fi; \
 	else \
 		gen-sources.list.udeb "$(SYSTEM_SOURCES_LIST)" $(USE_UDEBS_FROM) $(UDEB_COMPONENTS) $(USE_PROPOSED_UPDATES); \
 		if [ "$(USE_UNRELEASED)" = 1 ]; then \
