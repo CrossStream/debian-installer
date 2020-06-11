@@ -658,7 +658,10 @@ sources.list.udeb:
 		gen-sources.list.udeb "$(SYSTEM_SOURCES_LIST)" $(USE_UDEBS_FROM) $(UDEB_COMPONENTS) $(USE_PROPOSED_UPDATES); \
 		if [ "$(USE_UNRELEASED)" = 1 ]; then \
 			gen-sources.list.udeb "$(SYSTEM_SOURCES_LIST)" unreleased $(UDEB_COMPONENTS); \
-		fi \
+		fi; \
+		if [ "$(USE_EXPERIMENTAL)" = 1 ]; then \
+			echo "deb $(MIRROR) experimental $(UDEB_COMPONENTS)"; \
+		fi; \
 	fi) > $@
 	@if [ -e $@.local ]; then \
 		echo "Using $@.local:"; \
